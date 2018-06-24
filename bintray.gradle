@@ -54,6 +54,58 @@ def pomConfig = {
     }
 }
 
+/*publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId PROJ_ARTIFACTID
+            pom{
+                packaging 'aar'
+            }
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', PROJ_DESCRIPTION)
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}*/
+
+/*install {
+    repositories.mavenInstaller {
+        pom.project {
+            name PROJ_NAME
+            description PROJ_DESCRIPTION
+            url PROJ_WEBSITEURL
+            inceptionYear '2018'
+
+            packaging 'aar'
+            groupId PROJ_GROUP
+            artifactId PROJ_ARTIFACTID
+            version PROJ_VERSION
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+            scm {
+                connection PROJ_VCSURL
+                url PROJ_WEBSITEURL
+
+            }
+            developers {
+                developer {
+                    id DEVELOPER_ID
+                    name DEVELOPER_NAME
+                    email DEVELOPER_EMAIL
+                }
+            }
+        }
+    }
+}*/
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -74,8 +126,8 @@ bintray {
     Properties properties = new Properties()
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-    user = properties.getProperty('BINTRAY_USER')
-    key = properties.getProperty('BINTRAY_KEY')
+    user = properties.getProperty('BINTRAY_USER');
+    key = properties.getProperty('BINTRAY_KEY');
 
     configurations = ['archives']
     publications = ['mavenJava']

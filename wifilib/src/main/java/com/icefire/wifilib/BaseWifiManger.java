@@ -11,8 +11,7 @@ import java.util.List;
 
 /**
  * @author yangchj
- * @email yangchj@icefire.me
- * @date 2018/6/24
+ * email: yangchj@icefire.me
  */
 public abstract class BaseWifiManger {
 
@@ -40,7 +39,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取WI-FI状态
-     * @return
+     * @return 是否打开
      */
     public boolean isOpen(){
         return this.mWifiManager.isWifiEnabled();
@@ -70,7 +69,7 @@ public abstract class BaseWifiManger {
      * @param password  密码
      * @param authAlogrithm KEY_NONE是无密码，KEY_WEP是共享密钥WEP模式，KEY_WPA是WPA_PSK加密，暂不支持EAP
      * @param type  AP模式或Client模式,WIFI_CLIENT_MODE,WIFI_AP_MODE
-     * @return
+     * @return 配置信息
      */
     public WifiConfiguration makeConfiguration(String ssid,String password,int authAlogrithm,int type){
         // 配置网络信息类
@@ -146,8 +145,8 @@ public abstract class BaseWifiManger {
 
     /**
      * 已配置的无线热点中，是否存在网络信息
-     * @param ssid
-     * @return
+     * @param ssid ssid
+     * @return 配置信息
      */
     protected WifiConfiguration isExsits(String ssid){
         if (this.mWifiManager.getConfiguredNetworks()==null){
@@ -177,7 +176,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 创建一个WifiLock
-     * @param lock
+     * @param lock 锁
      */
     public void createWifiLock(String lock) {
         this.mWifiLock = this.mWifiManager.createWifiLock(lock);
@@ -194,7 +193,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取wifi SSID
-     * @return
+     * @return ssid
      */
     public String getSSID() {
         if (this.mWifiInfo == null) {
@@ -205,7 +204,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取wifi BSSID
-     * @return
+     * @return bssid
      */
     public String getBSSID() {
         if (this.mWifiInfo == null) {
@@ -216,7 +215,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取ip地址
-     * @return
+     * @return ip
      */
     public int getIPAddress() {
         return (mWifiInfo == null) ? 0 : mWifiInfo.getIpAddress();
@@ -224,7 +223,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取网关IP
-     * @return
+     * @return 网关ip
      */
     public int getGatewayIP() {
         return (this.mWifiManager == null) ? 0 : this.mWifiManager.getDhcpInfo().gateway;
@@ -232,7 +231,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取物理地址(Mac)
-     * @return
+     * @return mac地址
      */
     public String getMacAddress() {
         return (mWifiInfo == null) ? null : mWifiInfo.getMacAddress();
@@ -240,7 +239,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取网络id
-     * @return
+     * @return 网络ID
      */
     public int getNetworkId() {
         return (mWifiInfo == null) ? 0 : mWifiInfo.getNetworkId();
@@ -248,7 +247,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取wifi连接信息
-     * @return
+     * @return Wifi信息
      */
     public WifiInfo getWifiInfo() {
         return this.mWifiManager.getConnectionInfo();
@@ -256,7 +255,7 @@ public abstract class BaseWifiManger {
 
     /**
      * 获取WI-FI Manager
-     * @return
+     * @return WifiManager
      */
     public WifiManager getWifiManager() {
         return this.mWifiManager;

@@ -9,8 +9,7 @@ import java.util.List;
 
 /**
  * @author yangchj
- * @email yangchj@icefire.me
- * @date 2018/6/24
+ * email: yangchj@icefire.me
  */
 public class WifiClientManager extends BaseWifiManger{
 
@@ -26,7 +25,7 @@ public class WifiClientManager extends BaseWifiManger{
 
     /**
      * 断开指定id的WI-FI
-     * @param networkId
+     * @param networkId netId
      */
     public void disconnectWifi(int networkId){
         this.mWifiManager.disableNetwork(networkId);
@@ -34,7 +33,7 @@ public class WifiClientManager extends BaseWifiManger{
 
     /**
      * 添加并连接指定网络
-     * @param wifiConfig
+     * @param wifiConfig 网络配置
      */
     public void addNetwork(WifiConfiguration wifiConfig){
         openWifi();
@@ -48,7 +47,7 @@ public class WifiClientManager extends BaseWifiManger{
 
     /**
      * 连接指定配置好的网络
-     * @param netId
+     * @param netId netId
      */
     public void connectWifi(int netId){
         super.openWifi();
@@ -62,7 +61,7 @@ public class WifiClientManager extends BaseWifiManger{
      * WIFI_STATE_ENABLING = 2;
      * WIFI_STATE_ENABLED = 3;
      * WIFI_STATE_UNKNOWN = 4;
-     * @return
+     * @return 网络状态
      */
     public int getWifiState(){
         return this.mWifiManager.getWifiState();
@@ -70,8 +69,8 @@ public class WifiClientManager extends BaseWifiManger{
 
     /**
      * 指定的ssid是否已连接
-     * @param ssid
-     * @return
+     * @param ssid ssid
+     * @return 连接 true，未连接 false
      */
     public boolean isConnected(String ssid){
         WifiInfo wifiInfo=getWifiInfo();
@@ -81,7 +80,7 @@ public class WifiClientManager extends BaseWifiManger{
 
     /**
      * 获取已连接过的热点
-     * @return
+     * @return 已连接过的WI-FI
      */
     public List<WifiConfiguration> getHasWifiConfiguration(){
         return this.mWifiManager.getConfiguredNetworks();

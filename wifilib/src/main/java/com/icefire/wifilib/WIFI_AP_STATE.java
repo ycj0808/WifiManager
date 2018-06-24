@@ -2,8 +2,7 @@ package com.icefire.wifilib;
 
 /**
  * @author yangchj
- * @email yangchj@icefire.me
- * @date 2018/6/24
+ * email: yangchj@icefire.me
  */
 public enum WIFI_AP_STATE {
     WIFI_AP_STATE_DISABLING,

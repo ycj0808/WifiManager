@@ -8,8 +8,7 @@ import java.lang.reflect.Method;
 
 /**
  * @author yangchj
- * @email yangchj@icefire.me
- * @date 2018/6/24
+ * email: yangchj@icefire.me
  */
 public class WifiAPManager extends BaseWifiManger {
     public WifiAPManager(Context context) {
@@ -52,6 +51,7 @@ public class WifiAPManager extends BaseWifiManger {
 
     /**
      * 开启AP模式
+     * @return 是否开启成功
      */
     public boolean startAp() {
         return startAp(getWifiApConfiguration());
@@ -99,7 +99,6 @@ public class WifiAPManager extends BaseWifiManger {
      * 检测 Wi-Fi AP 是否被开启
      *
      * @return {@code true} 如果 Wi-Fi AP 开启
-     * @hide Dont open yet
      * @see #getWifiApState()
      */
     public boolean isWifiApEnabled() {
@@ -124,7 +123,7 @@ public class WifiAPManager extends BaseWifiManger {
     /**
      * 设置 Wi-Fi AP 配置.
      *
-     * @param {@link WifiConfiguration} 配置信息
+     * @param wifiConfig 配置信息
      * @return {@code true} 操作成功, {@code false} 出现异常
      */
     public boolean setWifiApConfiguration(WifiConfiguration wifiConfig) {
@@ -141,7 +140,7 @@ public class WifiAPManager extends BaseWifiManger {
      * 设置 Wi-Fi AP 配置.
      *
      * @param ssid     无线热点名
-     * @param passawrd 密码，长度>=8位
+     * @param passawrd 密码，长度大于等于8位
      * @return {@code true} 操作成功, {@code false} 出现异常
      */
     public boolean setWifiApConfiguration(String ssid, String passawrd) {
